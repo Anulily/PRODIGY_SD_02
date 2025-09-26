@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guessing Game</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h2>🔢 Guess the Number!</h2>
+    <p>Guess a number between 1 and 100.</p>
+
+    <input type="number" id="guessInput" placeholder="Enter your guess" />
+    <button onclick="makeGuess()">Submit</button>
+
+    <div id="message" class="message"></div>
+    <button id="playAgain" class="hidden" onclick="resetGame()">🔄 Play Again</button>
+  </div>
+
+  <script>
+    async function makeGuess() {
+      let guess = document.getElementById("guessInput").value;
+      if (!guess) {
+        showMessage("⚠️ Enter a number!", "warn");
+        return;
+      }
+
+      let response = await fetch("/guess", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ guess: guess })
+      });
+
+      let data = await response.json();
+      showMessage(data.result, data.status);
+
+      if (data.gameOver) {
+        document.getElementById("guessInput").disabled = true;
+        document.getElementById("playAgain").classList.remove("hidden");
+      }
+    }
+
+    function showMessage(msg, type) {
+      let messageBox = document.getElementById("message");
+      messageBox.innerHTML = msg;
+      messageBox.className = "message " + type;
+    }
+
+    async function resetGame() {
+      await fetch("/reset", { method: "POST" });
+      document.getElementById("guessInput").disabled = false;
+      document.getElementById("guessInput").value = "";
+      document.getElementById("message").innerHTML = "";
+      document.getElementById("playAgain").classList.add("hidden");
+    }
+  </script>
+</body>
+</html>
