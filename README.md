@@ -9,9 +9,13 @@ Built using Python (for backend logic) and HTML + CSS (for the user interface).
 📌 Features
 
 ✅ Random number generation each game
+<br>
 ✅ User-friendly web interface
+<br>
 ✅ Responsive design using CSS
+<br>
 ✅ Displays hints ("Too High" / "Too Low")
+<br>
 ✅ Keeps track of attempts
 
 🛠️ Technologies Used
