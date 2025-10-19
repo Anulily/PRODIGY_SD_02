@@ -26,5 +26,10 @@ HTML5 – Frontend structure
 CSS3 – Styling & layout (responsive design)
 
 To run the application
->> python app.py
+>> python app.py <br>
 
+<img width="702" height="526" alt="Image" src="https://github.com/user-attachments/assets/55bff93c-0619-482b-8b00-5940b077224e" />
+<img width="643" height="468" alt="Image" src="https://github.com/user-attachments/assets/9d49f45b-dfda-4089-be2e-81d6bd393d9e" />
+<img width="651" height="511" alt="Image" src="https://github.com/user-attachments/assets/8db2f8d1-0746-409d-a764-982c0df338f7" />
+<img width="667" height="552" alt="Image" src="https://github.com/user-attachments/assets/0c483b40-027e-438f-a39d-06ff909017b6" />
+<img width="835" height="634" alt="Image" src="https://github.com/user-attachments/assets/c64a5a88-6826-458b-a4ae-15356eef9c03" />
